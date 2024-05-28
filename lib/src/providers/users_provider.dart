@@ -1,26 +1,40 @@
-import 'dart:convert';
-
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../models/users_models.dart';
-import '../shared/environment_variables.dart';
-import 'http_client_provider.dart';
+import '../constants.dart';
+import 'auth_provider.dart';
+import 'db_provider.dart';
+import 'user.dart';
 
 part 'users_provider.g.dart';
 
-@riverpod
-Future<List<UsersData>> users(UsersRef ref) async {
-  final client = ref.read(clientProvider);
+@Riverpod(keepAlive: true)
+class Users extends _$Users {
+  @override
+  Future<List<UserData>> build() async {
+    final List<UserData> users = [];
 
-  final uri = Uri.https(
-    authority,
-    usersPath,
-    {'page': '2'},
-  );
+    final authNotifier = ref.read(authProvider.notifier);
 
-  final response = await client.get(uri);
+    final db = ref.read(dbProvider);
 
-  final map = jsonDecode(response.body);
-  final users = UsersModel.fromJson(map);
-  return users.data;
+    final usersDocuments = await db.listDocuments(
+      databaseId: Constants.database,
+      collectionId: Constants.usersCollection,
+    );
+
+    final userId = await authNotifier.getUserId();
+
+    for (final user in usersDocuments.documents) {
+      if (user.$id != userId) {
+        users.add(
+          UserData(
+            id: user.$id,
+            name: user.data['name'] ?? '',
+          ),
+        );
+      }
+    }
+
+    return users;
+  }
 }

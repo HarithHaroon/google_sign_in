@@ -6,19 +6,19 @@ part of 'http_client_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$clientHash() => r'facb6cc62be23429298816926c1b0450393940e4';
+String _$httpClientHash() => r'ee5992436ccfa04cad4349173d374824239fea46';
 
-/// See also [client].
-@ProviderFor(client)
-final clientProvider = AutoDisposeProvider<http.Client>.internal(
-  client,
-  name: r'clientProvider',
+/// See also [httpClient].
+@ProviderFor(httpClient)
+final httpClientProvider = AutoDisposeProvider<http.Client>.internal(
+  httpClient,
+  name: r'httpClientProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$clientHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$httpClientHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef ClientRef = AutoDisposeProviderRef<http.Client>;
+typedef HttpClientRef = AutoDisposeProviderRef<http.Client>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

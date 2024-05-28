@@ -1,24 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'users_provider.dart';
+part of 'account_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$usersHash() => r'618ded76768865ecac6b3c84d3db0618ec6e18b3';
+String _$accountHash() => r'c8710b9e75b10c4d12d33474c67a12ea9e81cd31';
 
-/// See also [Users].
-@ProviderFor(Users)
-final usersProvider = AsyncNotifierProvider<Users, List<UserData>>.internal(
-  Users.new,
-  name: r'usersProvider',
+/// See also [account].
+@ProviderFor(account)
+final accountProvider = AutoDisposeProvider<Account>.internal(
+  account,
+  name: r'accountProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$usersHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$accountHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$Users = AsyncNotifier<List<UserData>>;
+typedef AccountRef = AutoDisposeProviderRef<Account>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

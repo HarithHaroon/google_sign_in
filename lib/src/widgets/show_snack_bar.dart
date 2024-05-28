@@ -16,7 +16,7 @@ void showSnackBar({
     dismissDirection: DismissDirection.horizontal,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
     elevation: 10,
-    duration: const Duration(milliseconds: 500),
+    duration: const Duration(milliseconds: 1500),
     backgroundColor: color ?? Theme.of(context).primaryColor,
     margin: const EdgeInsets.all(20),
     behavior: SnackBarBehavior.floating,

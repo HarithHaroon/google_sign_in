@@ -1,9 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:g_sign_in/firebase_options.dart';
+import 'package:g_sign_in/src/app.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import 'firebase_options.dart';
-import 'src/app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

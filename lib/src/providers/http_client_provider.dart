@@ -4,6 +4,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'http_client_provider.g.dart';
 
 @riverpod
-http.Client client(ClientRef ref) {
+http.Client httpClient(HttpClientRef ref) {
   return http.Client();
 }
